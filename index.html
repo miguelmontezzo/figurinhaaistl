@@ -78,14 +78,14 @@
         </p>
 
         <div class="grid sm:grid-cols-2 gap-3 max-w-xl mx-auto lg:mx-0 mb-8">
-          <a href="https://pay.hotmart.com/L105914771L?bid=1779239352667" class="bg-brand hover:bg-yellow-300 text-black font-black text-center text-lg py-4 px-6 rounded-xl glow-yellow transition-all transform hover:scale-105 active:scale-95">
+          <button onclick="openLeadModal('https://pay.hotmart.com/L105914771L?bid=1779239352667','comunidade')" class="bg-brand hover:bg-yellow-300 text-black font-black text-center text-lg py-4 px-6 rounded-xl glow-yellow transition-all transform hover:scale-105 active:scale-95">
             ENTRAR NA COMUNIDADE
             <span class="block text-sm font-bold">R$ 32,90/mês</span>
-          </a>
-          <a href="https://pay.hotmart.com/E105914376F?bid=1779237666156" class="bg-green hover:bg-lime-300 text-black font-black text-center text-lg py-4 px-6 rounded-xl glow-green transition-all transform hover:scale-105 active:scale-95">
+          </button>
+          <button onclick="openLeadModal('https://pay.hotmart.com/E105914376F?bid=1779237666156','pessoal')" class="bg-green hover:bg-lime-300 text-black font-black text-center text-lg py-4 px-6 rounded-xl glow-green transition-all transform hover:scale-105 active:scale-95">
             COMPRAR USO PESSOAL
             <span class="block text-sm font-bold">R$ 39,90</span>
-          </a>
+          </button>
         </div>
 
         <div class="text-sm text-slate-500 flex justify-center lg:justify-start items-center gap-4 flex-wrap">
@@ -197,9 +197,9 @@
             </li>
           </ul>
 
-          <a href="https://pay.hotmart.com/E105914376F?bid=1779237666156" class="block w-full bg-white/10 hover:bg-white/20 text-white font-black text-center text-lg py-4 rounded-xl transition-all hover:scale-105 active:scale-95">
+          <button onclick="openLeadModal('https://pay.hotmart.com/E105914376F?bid=1779237666156','pessoal')" class="block w-full bg-white/10 hover:bg-white/20 text-white font-black text-center text-lg py-4 rounded-xl transition-all hover:scale-105 active:scale-95">
             COMPRAR USO PESSOAL
-          </a>
+          </button>
         </div>
 
         <!-- COMUNIDADE -->
@@ -245,9 +245,9 @@
             </li>
           </ul>
 
-          <a href="https://pay.hotmart.com/L105914771L?bid=1779239352667" class="block w-full bg-brand hover:bg-yellow-300 text-black font-black text-center text-lg py-4 rounded-xl transition-all hover:scale-105 active:scale-95 glow-yellow">
+          <button onclick="openLeadModal('https://pay.hotmart.com/L105914771L?bid=1779239352667','comunidade')" class="block w-full bg-brand hover:bg-yellow-300 text-black font-black text-center text-lg py-4 rounded-xl transition-all hover:scale-105 active:scale-95 glow-yellow">
             ENTRAR NA COMUNIDADE
-          </a>
+          </button>
         </div>
 
       </div>
@@ -567,12 +567,12 @@
         Escolha o acesso, baixe o arquivo e comece a imprimir.
       </p>
       <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-        <a href="https://pay.hotmart.com/L105914771L?bid=1779239352667" class="bg-brand hover:bg-yellow-300 text-black font-black text-xl py-5 px-8 rounded-xl glow-yellow transition-all transform hover:scale-105">
+        <button onclick="openLeadModal('https://pay.hotmart.com/L105914771L?bid=1779239352667','comunidade')" class="bg-brand hover:bg-yellow-300 text-black font-black text-xl py-5 px-8 rounded-xl glow-yellow transition-all transform hover:scale-105">
           COMUNIDADE<br><span class="text-lg line-through opacity-60">de R$ 97,90</span><br><span class="text-3xl">R$ 32,90/mês</span>
-        </a>
-        <a href="https://pay.hotmart.com/E105914376F?bid=1779237666156" class="bg-green hover:bg-lime-300 text-black font-black text-xl py-5 px-8 rounded-xl glow-green transition-all transform hover:scale-105">
+        </button>
+        <button onclick="openLeadModal('https://pay.hotmart.com/E105914376F?bid=1779237666156','pessoal')" class="bg-green hover:bg-lime-300 text-black font-black text-xl py-5 px-8 rounded-xl glow-green transition-all transform hover:scale-105">
           USO PESSOAL<br><span class="text-3xl">R$ 39,90</span>
-        </a>
+        </button>
       </div>
       <p class="mt-5 text-xs text-slate-500">Acesso imediato ao produto digital • Compra segura</p>
     </div>
@@ -585,11 +585,148 @@
     </a>
   </div>
 
+  <!-- MODAL LEAD CAPTURE -->
+  <div id="lead-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div id="lead-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+    <div class="relative bg-[#101410] border border-white/10 rounded-2xl shadow-2xl w-full max-w-md p-8 z-10">
+
+      <button id="lead-close" class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors text-xl leading-none">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="mb-6 text-center">
+        <span id="modal-plan-badge" class="inline-block text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full mb-4 border"></span>
+        <h3 class="text-2xl font-black text-white leading-tight">Só mais um passo antes da compra</h3>
+        <p class="text-slate-400 text-sm mt-2">Preencha para garantir seu acesso e receber suporte pelo WhatsApp.</p>
+      </div>
+
+      <form id="lead-form" novalidate class="space-y-4">
+        <div>
+          <label class="block text-xs font-black uppercase tracking-widest text-slate-400 mb-1.5">Nome</label>
+          <input id="lead-nome" type="text" placeholder="Seu nome completo" autocomplete="name"
+            class="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-brand transition-colors text-sm" />
+          <p id="err-nome" class="hidden text-xs text-red-400 mt-1">Informe seu nome.</p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-black uppercase tracking-widest text-slate-400 mb-1.5">Email</label>
+          <input id="lead-email" type="email" placeholder="seu@email.com" autocomplete="email"
+            class="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-brand transition-colors text-sm" />
+          <p id="err-email" class="hidden text-xs text-red-400 mt-1">Informe um email válido.</p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-black uppercase tracking-widest text-slate-400 mb-1.5">WhatsApp</label>
+          <input id="lead-whatsapp" type="tel" placeholder="(11) 99999-9999" autocomplete="tel"
+            class="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-brand transition-colors text-sm" />
+          <p id="err-wpp" class="hidden text-xs text-red-400 mt-1">Informe um WhatsApp válido.</p>
+        </div>
+
+        <button id="lead-submit" type="submit"
+          class="w-full font-black text-black text-lg py-4 rounded-xl transition-all transform hover:scale-105 active:scale-95 mt-2">
+          IR PARA O PAGAMENTO →
+        </button>
+      </form>
+
+      <p class="text-center text-xs text-slate-600 mt-4"><i class="fas fa-lock mr-1"></i>Seus dados não serão compartilhados.</p>
+    </div>
+  </div>
+
   <footer class="py-8 px-5 bg-black border-t border-white/10 text-center text-sm text-slate-500">
     © Figurinha Aí — STL desenvolvido e otimizado por Miguel Montezzo. Proibida a redistribuição do arquivo.
   </footer>
 
   <script>
+    // ── Lead Modal ──────────────────────────────────────────────
+    let _leadUrl = '';
+
+    function openLeadModal(url, plano) {
+      _leadUrl = url;
+      const badge = document.getElementById('modal-plan-badge');
+      const btn   = document.getElementById('lead-submit');
+
+      const base = 'w-full font-black text-black text-lg py-4 rounded-xl transition-all transform hover:scale-105 active:scale-95 mt-2';
+      if (plano === 'comunidade') {
+        badge.textContent = '⚡ Comunidade — R$ 32,90/mês';
+        badge.className   = 'inline-block text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full mb-4 border bg-brand/10 text-brand border-brand/40';
+        btn.className     = base + ' bg-brand hover:bg-yellow-300 glow-yellow';
+      } else {
+        badge.textContent = 'Uso Pessoal — R$ 39,90';
+        badge.className   = 'inline-block text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full mb-4 border bg-green/10 text-green-400 border-green/40';
+        btn.className     = base + ' bg-green hover:bg-lime-300 glow-green';
+      }
+
+      ['lead-nome','lead-email','lead-whatsapp'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      ['err-nome','err-email','err-wpp'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+
+      document.getElementById('lead-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('lead-nome').focus();
+    }
+
+    function closeLeadModal() {
+      document.getElementById('lead-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('lead-close').addEventListener('click', closeLeadModal);
+      document.getElementById('lead-backdrop').addEventListener('click', closeLeadModal);
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeLeadModal();
+      });
+
+      // WhatsApp mask: (XX) XXXXX-XXXX
+      document.getElementById('lead-whatsapp').addEventListener('input', function() {
+        let v = this.value.replace(/\D/g, '').slice(0, 11);
+        if (v.length >= 7)      v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+        else if (v.length >= 3) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+        else if (v.length >= 1) v = '(' + v;
+        this.value = v;
+      });
+
+      document.getElementById('lead-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let valid = true;
+
+        const nome  = document.getElementById('lead-nome').value.trim();
+        const email = document.getElementById('lead-email').value.trim();
+        const wpp   = document.getElementById('lead-whatsapp').value.replace(/\D/g,'');
+
+        if (nome.length < 2) {
+          document.getElementById('err-nome').classList.remove('hidden');
+          valid = false;
+        } else {
+          document.getElementById('err-nome').classList.add('hidden');
+        }
+
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!emailOk) {
+          document.getElementById('err-email').classList.remove('hidden');
+          valid = false;
+        } else {
+          document.getElementById('err-email').classList.add('hidden');
+        }
+
+        if (wpp.length < 10) {
+          document.getElementById('err-wpp').classList.remove('hidden');
+          valid = false;
+        } else {
+          document.getElementById('err-wpp').classList.add('hidden');
+        }
+
+        if (valid && _leadUrl) {
+          window.location.href = _leadUrl;
+        }
+      });
+    });
+    // ────────────────────────────────────────────────────────────
+
     document.addEventListener('DOMContentLoaded', function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
