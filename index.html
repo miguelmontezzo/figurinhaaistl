@@ -578,13 +578,6 @@
     </div>
   </section>
 
-  <!-- STICKY CTA MOBILE -->
-  <div class="md:hidden fixed bottom-0 left-0 w-full p-4 bg-surface/95 backdrop-blur border-t border-white/10 z-50">
-    <a href="#checkout" class="block w-full bg-brand text-black font-black text-center py-4 rounded-lg shadow-lg active:scale-95 transition-transform">
-      🔥 VER OFERTAS
-    </a>
-  </div>
-
   <!-- MODAL LEAD CAPTURE -->
   <div id="lead-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
     <div id="lead-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
@@ -632,6 +625,13 @@
     </div>
   </div>
 
+  <!-- STICKY CTA MOBILE -->
+  <div class="md:hidden fixed bottom-0 left-0 w-full p-4 bg-surface/95 backdrop-blur border-t border-white/10 z-50">
+    <a href="#checkout" class="block w-full bg-brand text-black font-black text-center py-4 rounded-lg shadow-lg active:scale-95 transition-transform">
+      🔥 VER OFERTAS
+    </a>
+  </div>
+
   <footer class="py-8 px-5 bg-black border-t border-white/10 text-center text-sm text-slate-500">
     © Figurinha Aí — STL desenvolvido e otimizado por Miguel Montezzo. Proibida a redistribuição do arquivo.
   </footer>
@@ -644,8 +644,8 @@
       _leadUrl = url;
       const badge = document.getElementById('modal-plan-badge');
       const btn   = document.getElementById('lead-submit');
+      const base  = 'w-full font-black text-black text-lg py-4 rounded-xl transition-all transform hover:scale-105 active:scale-95 mt-2';
 
-      const base = 'w-full font-black text-black text-lg py-4 rounded-xl transition-all transform hover:scale-105 active:scale-95 mt-2';
       if (plano === 'comunidade') {
         badge.textContent = '⚡ Comunidade — R$ 32,90/mês';
         badge.className   = 'inline-block text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full mb-4 border bg-brand/10 text-brand border-brand/40';
@@ -656,12 +656,8 @@
         btn.className     = base + ' bg-green hover:bg-lime-300 glow-green';
       }
 
-      ['lead-nome','lead-email','lead-whatsapp'].forEach(id => {
-        document.getElementById(id).value = '';
-      });
-      ['err-nome','err-email','err-wpp'].forEach(id => {
-        document.getElementById(id).classList.add('hidden');
-      });
+      ['lead-nome','lead-email','lead-whatsapp'].forEach(id => document.getElementById(id).value = '');
+      ['err-nome','err-email','err-wpp'].forEach(id => document.getElementById(id).classList.add('hidden'));
 
       document.getElementById('lead-modal').classList.remove('hidden');
       document.body.style.overflow = 'hidden';
@@ -676,12 +672,8 @@
     document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('lead-close').addEventListener('click', closeLeadModal);
       document.getElementById('lead-backdrop').addEventListener('click', closeLeadModal);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLeadModal(); });
 
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeLeadModal();
-      });
-
-      // WhatsApp mask: (XX) XXXXX-XXXX
       document.getElementById('lead-whatsapp').addEventListener('input', function() {
         let v = this.value.replace(/\D/g, '').slice(0, 11);
         if (v.length >= 7)      v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
@@ -693,36 +685,21 @@
       document.getElementById('lead-form').addEventListener('submit', function(e) {
         e.preventDefault();
         let valid = true;
-
         const nome  = document.getElementById('lead-nome').value.trim();
         const email = document.getElementById('lead-email').value.trim();
         const wpp   = document.getElementById('lead-whatsapp').value.replace(/\D/g,'');
 
-        if (nome.length < 2) {
-          document.getElementById('err-nome').classList.remove('hidden');
-          valid = false;
-        } else {
-          document.getElementById('err-nome').classList.add('hidden');
-        }
+        document.getElementById('err-nome').classList.toggle('hidden', nome.length >= 2);
+        if (nome.length < 2) valid = false;
 
         const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        if (!emailOk) {
-          document.getElementById('err-email').classList.remove('hidden');
-          valid = false;
-        } else {
-          document.getElementById('err-email').classList.add('hidden');
-        }
+        document.getElementById('err-email').classList.toggle('hidden', emailOk);
+        if (!emailOk) valid = false;
 
-        if (wpp.length < 10) {
-          document.getElementById('err-wpp').classList.remove('hidden');
-          valid = false;
-        } else {
-          document.getElementById('err-wpp').classList.add('hidden');
-        }
+        document.getElementById('err-wpp').classList.toggle('hidden', wpp.length >= 10);
+        if (wpp.length < 10) valid = false;
 
-        if (valid && _leadUrl) {
-          window.location.href = _leadUrl;
-        }
+        if (valid && _leadUrl) window.location.href = _leadUrl;
       });
     });
     // ────────────────────────────────────────────────────────────
