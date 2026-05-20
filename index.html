@@ -30,11 +30,12 @@
         extend: {
           fontFamily: { sans: ['Inter', 'sans-serif'] },
           colors: {
-            dark: '#050505',
-            surface: '#101410',
-            surface2: '#171c17',
-            brand: '#FFD000',
-            green: '#52ff19'
+            dark: '#040D06',
+            surface: '#091508',
+            surface2: '#0F2010',
+            brand: '#FFDF00',
+            green: '#009C3B',
+            blue: '#002776'
           }
         }
       }
@@ -42,11 +43,11 @@
   </script>
 
   <style>
-    body { font-family: 'Inter', sans-serif; background:#050505; color:#d4d4d4; }
+    body { font-family: 'Inter', sans-serif; background:#040D06; color:#d4d4d4; }
     .fade-in-section { opacity:0; transform:translateY(20px); transition:opacity .6s ease-out, transform .6s ease-out; }
     .fade-in-section.is-visible { opacity:1; transform:none; }
-    .glow-yellow { box-shadow:0 0 30px rgba(255,208,0,.35); }
-    .glow-green { box-shadow:0 0 25px rgba(82,255,25,.20); }
+    .glow-yellow { box-shadow:0 0 30px rgba(255,223,0,.40); }
+    .glow-green { box-shadow:0 0 25px rgba(0,156,59,.30); }
     .hero-grid { background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size:24px 24px; }
     .proof-img { width:100%; height:100%; object-fit:cover; object-position:center; }
     .scrollbar-hide { -ms-overflow-style:none; scrollbar-width:none; }
@@ -78,7 +79,7 @@
         </p>
 
         <div class="max-w-xl mx-auto lg:mx-0 mb-8">
-          <a href="#planos" class="block bg-brand hover:bg-yellow-300 text-black font-black text-center text-xl py-5 px-8 rounded-xl glow-yellow transition-all transform hover:scale-105 active:scale-95">
+          <a href="#planos" class="block bg-brand hover:bg-brand/80 text-black font-black text-center text-xl py-5 px-8 rounded-xl glow-yellow transition-all transform hover:scale-105 active:scale-95">
             QUERO FATURAR NA COPA →
           </a>
         </div>
@@ -244,7 +245,7 @@
             </li>
           </ul>
 
-          <button onclick="openLeadModal('https://pay.hotmart.com/L105914771L?bid=1779239352667','comunidade')" class="block w-full bg-brand hover:bg-yellow-300 text-black font-black text-center text-lg py-4 rounded-xl transition-all hover:scale-105 active:scale-95 glow-yellow">
+          <button onclick="openLeadModal('https://pay.hotmart.com/L105914771L?bid=1779239352667','comunidade')" class="block w-full bg-brand hover:bg-brand/80 text-black font-black text-center text-lg py-4 rounded-xl transition-all hover:scale-105 active:scale-95 glow-yellow">
             ENTRAR NA COMUNIDADE
           </button>
         </div>
@@ -566,7 +567,7 @@
         Escolha o acesso, baixe o arquivo e comece a imprimir.
       </p>
       <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-        <button onclick="openLeadModal('https://pay.hotmart.com/L105914771L?bid=1779239352667','comunidade')" class="bg-brand hover:bg-yellow-300 text-black font-black text-xl py-5 px-8 rounded-xl glow-yellow transition-all transform hover:scale-105">
+        <button onclick="openLeadModal('https://pay.hotmart.com/L105914771L?bid=1779239352667','comunidade')" class="bg-brand hover:bg-brand/80 text-black font-black text-xl py-5 px-8 rounded-xl glow-yellow transition-all transform hover:scale-105">
           COMUNIDADE<br><span class="text-lg line-through opacity-60">de R$ 97,90</span><br><span class="text-3xl">R$ 32,90/mês</span>
         </button>
         <button onclick="openLeadModal('https://pay.hotmart.com/E105914376F?bid=1779237666156','pessoal')" class="bg-green hover:bg-lime-300 text-black font-black text-xl py-5 px-8 rounded-xl glow-green transition-all transform hover:scale-105">
@@ -648,10 +649,10 @@
       if (plano === 'comunidade') {
         badge.textContent = '⚡ Comunidade — R$ 32,90/mês';
         badge.className   = 'inline-block text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full mb-4 border bg-brand/10 text-brand border-brand/40';
-        btn.className     = base + ' bg-brand hover:bg-yellow-300 glow-yellow';
+        btn.className     = base + ' bg-brand hover:bg-brand/80 glow-yellow';
       } else {
         badge.textContent = 'Uso Pessoal — R$ 39,90';
-        badge.className   = 'inline-block text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full mb-4 border bg-green/10 text-green-400 border-green/40';
+        badge.className   = 'inline-block text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full mb-4 border bg-green/10 text-green border-green/40';
         btn.className     = base + ' bg-green hover:bg-lime-300 glow-green';
       }
 
