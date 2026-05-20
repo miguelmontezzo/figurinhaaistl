@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STL Caixinha para Figurinhas | Figurinha Aí</title>
+  <meta name="description" content="STL validado da Caixinha Figurinha Aí. Uso pessoal por R$39,90 ou comunidade com licença comercial por R$32,90/mês." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            dark: '#050505',
+            surface: '#101410',
+            surface2: '#171c17',
+            brand: '#FFD000',
+            green: '#52ff19'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background:#050505; color:#d4d4d4; }
+    .fade-in-section { opacity:0; transform:translateY(20px); transition:opacity .6s ease-out, transform .6s ease-out; }
+    .fade-in-section.is-visible { opacity:1; transform:none; }
+    .glow-yellow { box-shadow:0 0 30px rgba(255,208,0,.35); }
+    .glow-green { box-shadow:0 0 25px rgba(82,255,25,.20); }
+    .hero-grid { background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size:24px 24px; }
+    .proof-img { width:100%; height:100%; object-fit:contain; object-position:center; background:#0b0f0b; }
+    .scrollbar-hide { -ms-overflow-style:none; scrollbar-width:none; }
+    .scrollbar-hide::-webkit-scrollbar { display:none; }
+  </style>
+</head>
+
+<body class="bg-dark text-slate-300 font-sans antialiased pb-24 md:pb-0">
+
+  <!-- PROVA SOCIAL FIXA -->
+  <div class="bg-brand text-black font-black text-center py-2 px-4 text-xs md:text-sm sticky top-0 z-50 shadow-md">
+    <i class="fas fa-star mr-1"></i> +400 caixinhas já vendidas no comércio local • STL validado no mercado real
+  </div>
+
+  <!-- HERO -->
+  <header class="relative pt-16 md:pt-20 pb-14 px-5 overflow-hidden border-b border-white/10 hero-grid">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+      <div class="text-center lg:text-left fade-in-section">
+        <span class="inline-block py-1.5 px-4 rounded-full bg-surface2 text-brand text-xs font-black tracking-widest uppercase mb-6 border border-brand/30">
+          ⚡ Produto digital para impressão 3D
+        </span>
+
+        <h1 class="text-4xl md:text-6xl font-black text-white leading-[.95] mb-6 tracking-tight">
+          O mercado está aquecido. Você tem o <span class="text-brand">STL certo</span> para imprimir hoje?
+        </h1>
+
+        <p class="text-lg md:text-xl text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0 font-light">
+          Caixinha para figurinhas validada com +400 vendas locais. Projeto para bico 0.4 mm, feito para PLA, testado na Bambu Lab A1 e A1 Mini, e compatível com impressoras FDM do mercado.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-3 max-w-xl mx-auto lg:mx-0 mb-8">
+          <a href="https://pay.hotmart.com/L105914771L?bid=1779239352667" class="bg-brand hover:bg-yellow-300 text-black font-black text-center text-lg py-4 px-6 rounded-xl glow-yellow transition-all transform hover:scale-105 active:scale-95">
+            ENTRAR NA COMUNIDADE
+            <span class="block text-sm font-bold">R$ 32,90/mês</span>
+          </a>
+          <a href="https://pay.hotmart.com/E105914376F?bid=1779237666156" class="bg-green hover:bg-lime-300 text-black font-black text-center text-lg py-4 px-6 rounded-xl glow-green transition-all transform hover:scale-105 active:scale-95">
+            COMPRAR USO PESSOAL
+            <span class="block text-sm font-bold">R$ 39,90</span>
+          </a>
+        </div>
+
+        <div class="text-sm text-slate-500 flex justify-center lg:justify-start items-center gap-4 flex-wrap">
+          <span><i class="fas fa-lock"></i> Compra segura</span>
+          <span><i class="fas fa-bolt"></i> Acesso imediato</span>
+          <span><i class="fas fa-print"></i> Bico 0.4 mm</span>
+        </div>
+      </div>
+
+      <div class="fade-in-section">
+        <div class="bg-white rounded-3xl p-2 md:p-3 shadow-2xl border border-white/20 overflow-hidden">
+          <div class="relative w-full aspect-[3/4] rounded-[20px] overflow-hidden bg-black">
+            <!-- iframe expandido para cobrir o container 3:4 sem barras pretas -->
+            <iframe
+              style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:237%; height:133.33%; pointer-events:auto;"
+              src="https://www.youtube-nocookie.com/embed/8e4I-sBLZq4?autoplay=1&mute=0&loop=1&playlist=8e4I-sBLZq4&controls=0&rel=0&modestbranding=1&iv_load_policy=3&showinfo=0&fs=0&cc_load_policy=0&disablekb=1"
+              title="Caixinha Figurinha Aí"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- COUNTDOWN URGÊNCIA -->
+  <section class="bg-brand py-10 px-5">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="text-black font-black uppercase tracking-widest text-sm mb-1">⚡ Janela de oportunidade aberta</p>
+      <h2 class="text-2xl md:text-4xl font-black text-black mb-2 leading-tight">
+        A Copa do Mundo começa em breve. Quem imprime <span class="underline decoration-4">agora</span> ainda pega a onda.
+      </h2>
+      <p class="text-black/70 font-semibold mb-6 text-base md:text-lg max-w-2xl mx-auto">
+        Depois que o mercado saturar, o preço sobe e a margem cai. Entre agora, produza antes de todo mundo.
+      </p>
+
+      <div class="flex justify-center gap-3 md:gap-5 mb-6">
+        <div class="bg-black rounded-2xl px-4 py-4 md:px-7 md:py-5 min-w-[72px] md:min-w-[100px] shadow-lg">
+          <span id="days" class="text-4xl md:text-6xl font-black text-brand block leading-none">00</span>
+          <span class="text-xs md:text-sm text-slate-400 uppercase tracking-widest mt-1 block">dias</span>
+        </div>
+        <div class="bg-black rounded-2xl px-4 py-4 md:px-7 md:py-5 min-w-[72px] md:min-w-[100px] shadow-lg">
+          <span id="hours" class="text-4xl md:text-6xl font-black text-brand block leading-none">00</span>
+          <span class="text-xs md:text-sm text-slate-400 uppercase tracking-widest mt-1 block">horas</span>
+        </div>
+        <div class="bg-black rounded-2xl px-4 py-4 md:px-7 md:py-5 min-w-[72px] md:min-w-[100px] shadow-lg">
+          <span id="minutes" class="text-4xl md:text-6xl font-black text-brand block leading-none">00</span>
+          <span class="text-xs md:text-sm text-slate-400 uppercase tracking-widest mt-1 block">min</span>
+        </div>
+        <div class="bg-black rounded-2xl px-4 py-4 md:px-7 md:py-5 min-w-[72px] md:min-w-[100px] shadow-lg">
+          <span id="seconds" class="text-4xl md:text-6xl font-black text-brand block leading-none">00</span>
+          <span class="text-xs md:text-sm text-slate-400 uppercase tracking-widest mt-1 block">seg</span>
+        </div>
+      </div>
+
+      <a href="#planos" class="inline-block bg-black hover:bg-zinc-900 text-brand font-black text-lg md:text-xl px-10 py-4 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-xl">
+        QUERO ENTRAR AGORA →
+      </a>
+    </div>
+  </section>
+
+  <!-- COMPARATIVO DE PLANOS -->
+  <section id="planos" class="py-20 px-5 bg-dark border-t border-white/10">
+    <div class="max-w-5xl mx-auto fade-in-section">
+      <div class="text-center mb-12">
+        <p class="text-brand font-black uppercase tracking-widest text-sm mb-3">O que você está buscando agora?</p>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-4">Imprimir para você <span class="text-slate-500">ou</span> fazer grana com isso?</h2>
+        <p class="text-slate-400 text-lg">Escolha o caminho certo. Os dois dão acesso ao STL validado.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 items-start">
+
+        <!-- USO PESSOAL -->
+        <div class="bg-surface rounded-3xl border border-white/10 p-8 flex flex-col">
+          <div class="mb-6">
+            <span class="inline-block text-xs font-black uppercase tracking-widest text-slate-400 border border-white/10 rounded-full px-3 py-1 mb-4">Quero imprimir para mim</span>
+            <div class="flex items-end gap-2 mb-2">
+              <span class="text-5xl font-black text-white">R$&nbsp;39,90</span>
+              <span class="text-slate-500 mb-1">pagamento único</span>
+            </div>
+            <p class="text-slate-400">Acesso ao STL para imprimir em casa, presentear ou colecionar. Sem licença para venda.</p>
+          </div>
+
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-center gap-3 text-slate-300">
+              <i class="fas fa-check text-green text-sm w-4"></i> Arquivo STL da caixinha validado
+            </li>
+            <li class="flex items-center gap-3 text-slate-300">
+              <i class="fas fa-check text-green text-sm w-4"></i> Otimizado para bico 0.4 mm / PLA
+            </li>
+            <li class="flex items-center gap-3 text-slate-300">
+              <i class="fas fa-check text-green text-sm w-4"></i> Testado na Bambu Lab A1 e A1 Mini
+            </li>
+            <li class="flex items-center gap-3 text-slate-300">
+              <i class="fas fa-check text-green text-sm w-4"></i> Acesso imediato ao download
+            </li>
+            <li class="flex items-center gap-3 text-slate-500 line-through">
+              <i class="fas fa-times text-slate-600 text-sm w-4"></i> Licença para venda comercial
+            </li>
+            <li class="flex items-center gap-3 text-slate-500 line-through">
+              <i class="fas fa-times text-slate-600 text-sm w-4"></i> Gerador de contratos de consignado
+            </li>
+            <li class="flex items-center gap-3 text-slate-500 line-through">
+              <i class="fas fa-times text-slate-600 text-sm w-4"></i> Calculadora de precificação 3D
+            </li>
+            <li class="flex items-center gap-3 text-slate-500 line-through">
+              <i class="fas fa-times text-slate-600 text-sm w-4"></i> Novos STLs do universo colecionável
+            </li>
+          </ul>
+
+          <a href="https://pay.hotmart.com/E105914376F?bid=1779237666156" class="block w-full bg-white/10 hover:bg-white/20 text-white font-black text-center text-lg py-4 rounded-xl transition-all hover:scale-105 active:scale-95">
+            COMPRAR USO PESSOAL
+          </a>
+        </div>
+
+        <!-- COMUNIDADE -->
+        <div class="bg-surface rounded-3xl border-2 border-brand p-8 flex flex-col relative glow-yellow">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+            <span class="bg-brand text-black font-black text-xs uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">⚡ Mais escolhido</span>
+          </div>
+
+          <div class="mb-6">
+            <span class="inline-block text-xs font-black uppercase tracking-widest text-brand border border-brand/30 rounded-full px-3 py-1 mb-4">Quero fazer grana com isso</span>
+            <div class="flex items-end gap-2 mb-1">
+              <span class="text-5xl font-black text-white">R$&nbsp;32,90</span>
+              <span class="text-slate-400 mb-1">/mês</span>
+            </div>
+            <p class="text-slate-500 text-sm line-through mb-2">de R$ 97,90/mês</p>
+            <p class="text-slate-400">Comunidade + licença comercial. Imprima, venda e escale com as ferramentas certas.</p>
+          </div>
+
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-center gap-3 text-slate-300">
+              <i class="fas fa-check text-green text-sm w-4"></i> Arquivo STL da caixinha validado
+            </li>
+            <li class="flex items-center gap-3 text-slate-300">
+              <i class="fas fa-check text-green text-sm w-4"></i> Otimizado para bico 0.4 mm / PLA
+            </li>
+            <li class="flex items-center gap-3 text-slate-300">
+              <i class="fas fa-check text-green text-sm w-4"></i> Testado na Bambu Lab A1 e A1 Mini
+            </li>
+            <li class="flex items-center gap-3 text-slate-300">
+              <i class="fas fa-check text-green text-sm w-4"></i> Acesso imediato ao download
+            </li>
+            <li class="flex items-center gap-3 text-brand font-semibold">
+              <i class="fas fa-check text-brand text-sm w-4"></i> Licença para venda comercial
+            </li>
+            <li class="flex items-center gap-3 text-brand font-semibold">
+              <i class="fas fa-check text-brand text-sm w-4"></i> Gerador de contratos de consignado <span class="text-xs text-slate-500 font-normal ml-1">val. R$97,90 · liberado em 7 dias</span>
+            </li>
+            <li class="flex items-center gap-3 text-brand font-semibold">
+              <i class="fas fa-check text-brand text-sm w-4"></i> Calculadora de precificação 3D <span class="text-xs text-slate-500 font-normal ml-1">val. R$97,90 · liberado em 7 dias</span>
+            </li>
+            <li class="flex items-center gap-3 text-brand font-semibold">
+              <i class="fas fa-check text-brand text-sm w-4"></i> Novos STLs do universo colecionável
+            </li>
+          </ul>
+
+          <a href="https://pay.hotmart.com/L105914771L?bid=1779239352667" class="block w-full bg-brand hover:bg-yellow-300 text-black font-black text-center text-lg py-4 rounded-xl transition-all hover:scale-105 active:scale-95 glow-yellow">
+            ENTRAR NA COMUNIDADE
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURO DA COMUNIDADE -->
+  <section class="py-16 px-5 bg-dark border-b border-white/10">
+    <div class="max-w-6xl mx-auto fade-in-section text-center">
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-4">A comunidade não para na Copa.</h2>
+      <p class="text-lg text-slate-400 max-w-4xl mx-auto mb-10">
+        A ideia é continuar trazendo STL e produtos físicos voltados para o universo dos colecionáveis e da cultura geek.
+      </p>
+
+      <div class="grid md:grid-cols-4 gap-4 text-left">
+        <div class="bg-surface p-6 rounded-2xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-dragon text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-2">Pokémon</h3>
+          <p class="text-sm text-slate-400">Produtos para cartas, coleções e acessórios personalizados.</p>
+        </div>
+
+        <div class="bg-surface p-6 rounded-2xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-car-side text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-2">Hot Wheels</h3>
+          <p class="text-sm text-slate-400">Displays, organizadores, cases e itens de exposição.</p>
+        </div>
+
+        <div class="bg-surface p-6 rounded-2xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-shield-heart text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-2">Cards & TCG</h3>
+          <p class="text-sm text-slate-400">Itens para decks, sleeves, armazenamento e transporte.</p>
+        </div>
+
+        <div class="bg-surface p-6 rounded-2xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-cubes text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-2">Colecionáveis</h3>
+          <p class="text-sm text-slate-400">Produtos físicos criados para nichos apaixonados por coleção.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPORTUNIDADE -->
+  <section class="py-16 px-5 bg-dark">
+    <div class="max-w-4xl mx-auto fade-in-section text-center">
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-5">O timing é agora.</h2>
+      <p class="text-lg text-slate-400 mb-8">
+        Colecionismo, Copa, nostalgia e personalização geram compra por impulso. A caixinha resolve um problema simples: guardar, proteger e transportar figurinhas com estilo.
+      </p>
+      <div class="grid md:grid-cols-3 gap-4 text-left">
+        <div class="bg-surface p-6 rounded-xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-fire text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-2">Mercado aquecido</h3>
+          <p class="text-sm text-slate-400">Produto sazonal com alto interesse e venda fácil no presencial.</p>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-cube text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-2">Uso além das figurinhas</h3>
+          <p class="text-sm text-slate-400">Depois da temporada, serve para cartões, moedas, peças pequenas e acessórios.</p>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-rocket text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-2">Pronto para produzir</h3>
+          <p class="text-sm text-slate-400">Arquivo direto para quem quer fatiar, imprimir e vender.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE VENDE -->
+  <section class="py-16 px-5 bg-surface border-y border-white/10">
+    <div class="max-w-5xl mx-auto fade-in-section">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Por que esse STL vende?</h2>
+        <p class="text-slate-400 text-lg">Porque é simples de entender, barato de produzir e fácil de oferecer.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-dark p-6 rounded-xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-stopwatch text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-2">Rápido</h3>
+          <p class="text-sm text-slate-400">Pensado para produção prática em FDM.</p>
+        </div>
+        <div class="bg-dark p-6 rounded-xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-ruler-combined text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-2">Compacto</h3>
+          <p class="text-sm text-slate-400">80 x 65 x 50 mm, fácil de levar e vender.</p>
+        </div>
+        <div class="bg-dark p-6 rounded-xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-print text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-2">Bico 0.4</h3>
+          <p class="text-sm text-slate-400">Compatível com impressoras FDM do mercado.</p>
+        </div>
+        <div class="bg-dark p-6 rounded-xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-medal text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-2">Validado</h3>
+          <p class="text-sm text-slate-400">Mais de 400 unidades vendidas localmente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IDEAL PARA REVENDA -->
+  <section class="py-16 px-5 bg-dark">
+    <div class="max-w-5xl mx-auto fade-in-section text-center">
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Também é produto para revenda física.</h2>
+      <p class="text-lg text-slate-400 mb-10 max-w-3xl mx-auto">
+        Além da venda direta para colecionadores, a caixinha pode ser oferecida para pontos comerciais que já atendem esse público no dia a dia.
+      </p>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+        <div class="bg-surface p-5 rounded-xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-newspaper text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-1">Bancas</h3>
+          <p class="text-sm text-slate-400">Produto de impulso para quem compra ou troca figurinhas.</p>
+        </div>
+
+        <div class="bg-surface p-5 rounded-xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-gamepad text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-1">Lojas geek</h3>
+          <p class="text-sm text-slate-400">Combina com colecionismo, cards, miniaturas e cultura pop.</p>
+        </div>
+
+        <div class="bg-surface p-5 rounded-xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-pen-ruler text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-1">Papelarias</h3>
+          <p class="text-sm text-slate-400">Boa opção para crianças, pais e materiais de organização.</p>
+        </div>
+
+        <div class="bg-surface p-5 rounded-xl border border-white/10 hover:border-brand transition-colors">
+          <i class="fas fa-puzzle-piece text-3xl text-brand mb-4"></i>
+          <h3 class="text-white font-black mb-1">Lojas de brinquedos</h3>
+          <p class="text-sm text-slate-400">Produto simples, visual e fácil de vender no balcão.</p>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-surface p-6 rounded-2xl border border-brand/30 text-left">
+        <h3 class="text-white font-black text-xl mb-3">Ideia de abordagem</h3>
+        <p class="text-slate-400">
+          Imprima algumas unidades, leve como amostra e ofereça como produto de balcão para venda avulsa, combos com pacotinhos ou consignado. É uma peça compacta, fácil de expor e com apelo visual imediato.
+        </p>
+      </div>
+    </div>
+  </section>
+
+    <!-- MODELO DE NEGÓCIO -->
+  <section class="py-16 px-5 bg-surface border-y border-white/10">
+    <div class="max-w-6xl mx-auto fade-in-section">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Transforme isso em um negócio local.</h2>
+        <p class="text-lg text-slate-400 max-w-3xl mx-auto">
+          A comunidade não entrega apenas o STL. Você aprende formas de escalar usando varejo, atacado e consignado.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="bg-dark p-6 rounded-2xl border border-white/10 hover:border-brand transition-colors">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 text-brand grid place-items-center text-2xl mb-5">
+            <i class="fas fa-store"></i>
+          </div>
+          <h3 class="text-2xl font-black text-white mb-3">Varejo</h3>
+          <p class="text-slate-400">
+            Venda unitária no Instagram, WhatsApp, feiras, eventos e presencialmente para colecionadores.
+          </p>
+        </div>
+
+        <div class="bg-dark p-6 rounded-2xl border border-white/10 hover:border-brand transition-colors">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 text-brand grid place-items-center text-2xl mb-5">
+            <i class="fas fa-boxes-stacked"></i>
+          </div>
+          <h3 class="text-2xl font-black text-white mb-3">Atacado</h3>
+          <p class="text-slate-400">
+            Produza em quantidade e forneça para bancas, lojas geeks, papelarias e lojas de brinquedos.
+          </p>
+        </div>
+
+        <div class="bg-dark p-6 rounded-2xl border border-white/10 hover:border-brand transition-colors">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 text-brand grid place-items-center text-2xl mb-5">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3 class="text-2xl font-black text-white mb-3">Consignado</h3>
+          <p class="text-slate-400">
+            Faça parcerias locais e deixe outros estabelecimentos venderem para você enquanto você escala a produção.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-dark p-7 rounded-2xl border border-brand/30 glow-yellow">
+        <div class="grid lg:grid-cols-[1fr_320px] gap-8 items-center">
+          <div>
+            <p class="text-brand font-black uppercase tracking-widest text-sm mb-3">Ferramenta exclusiva da comunidade</p>
+            <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Plataforma para gerar contratos de consignado.</h3>
+            <p class="text-slate-400 text-lg leading-relaxed">
+              Dentro da comunidade será disponibilizada uma plataforma para gerar contratos prontos de consignado, ajudando você a fechar parcerias com mais segurança e profissionalismo.
+            </p>
+
+            <div class="mt-6 grid sm:grid-cols-2 gap-4">
+              <div class="bg-surface rounded-xl border border-brand/20 p-4">
+                <p class="text-xs uppercase tracking-widest text-brand font-black mb-2">Bônus incluso</p>
+                <h4 class="text-white font-black text-lg">Gerador de contratos</h4>
+                <p class="text-slate-400 text-sm mt-1">Ferramenta para criar contratos de consignado automaticamente.</p>
+                <div class="mt-3 text-brand font-black text-xl">Valor: R$ 97,90</div>
+              </div>
+
+              <div class="bg-surface rounded-xl border border-brand/20 p-4">
+                <p class="text-xs uppercase tracking-widest text-brand font-black mb-2">Bônus incluso</p>
+                <h4 class="text-white font-black text-lg">Calculadora 3D</h4>
+                <p class="text-slate-400 text-sm mt-1">Precifique corretamente material, energia, tempo e lucro.</p>
+                <div class="mt-3 text-brand font-black text-xl">Valor: R$ 97,90</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-surface rounded-2xl p-6 border border-white/10">
+            <div class="space-y-4 text-sm">
+              <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                <span class="text-slate-500">Modelo</span>
+                <span class="text-white font-bold">Consignado</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                <span class="text-slate-500">Cliente</span>
+                <span class="text-white font-bold">Banca / Loja</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                <span class="text-slate-500">Quantidade</span>
+                <span class="text-white font-bold">50 unidades</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">Status</span>
+                <span class="text-green font-bold">Contrato gerado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVAS SOCIAIS REAIS -->
+  <section class="py-16 px-5 bg-dark border-t border-white/10">
+    <div class="max-w-7xl mx-auto fade-in-section">
+      <div class="text-center mb-12">
+        <p class="text-brand font-black uppercase tracking-widest text-sm mb-3">Vendas reais</p>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-4">O produto já está rodando no mundo real.</h2>
+        <p class="text-lg text-slate-400 max-w-3xl mx-auto">
+          Algumas vendas, produções e movimentações reais feitas com a caixinha no mercado local.
+        </p>
+      </div>
+
+      <div class="relative">
+        <div class="overflow-x-auto pb-4 scrollbar-hide">
+          <div class="flex gap-4 min-w-max px-1">
+
+            <div class="min-w-[240px] md:min-w-[280px] h-[420px] mt-10 bg-surface rounded-2xl overflow-hidden border border-white/10 hover:border-brand transition-all duration-300 hover:-translate-y-1 rotate-[-2deg] p-2">
+              <img src="https://i.ibb.co/Mx24sZ4j/IMG-5316.jpg" class="proof-img rounded-xl" alt="Venda real Figurinha Aí">
+            </div>
+
+            <div class="min-w-[240px] md:min-w-[280px] h-[420px] mt-2 bg-surface rounded-2xl overflow-hidden border border-white/10 hover:border-brand transition-all duration-300 hover:-translate-y-1 rotate-[1deg] p-2">
+              <img src="https://i.ibb.co/39SB7F7M/IMG-5312.jpg" class="proof-img rounded-xl" alt="Venda real Figurinha Aí">
+            </div>
+
+            <div class="min-w-[240px] md:min-w-[280px] h-[420px] mt-16 bg-surface rounded-2xl overflow-hidden border border-white/10 hover:border-brand transition-all duration-300 hover:-translate-y-1 rotate-[-1deg] p-2">
+              <img src="https://i.ibb.co/X0yX5bp/IMG-5319.jpg" class="proof-img rounded-xl" alt="Venda real Figurinha Aí">
+            </div>
+
+            <div class="min-w-[240px] md:min-w-[280px] h-[420px] mt-4 bg-surface rounded-2xl overflow-hidden border border-white/10 hover:border-brand transition-all duration-300 hover:-translate-y-1 rotate-[2deg] p-2">
+              <img src="https://i.ibb.co/Fb5v9hWc/IMG-5314.jpg" class="proof-img rounded-xl" alt="Venda real Figurinha Aí">
+            </div>
+
+            <div class="min-w-[240px] md:min-w-[280px] h-[420px] mt-12 bg-surface rounded-2xl overflow-hidden border border-white/10 hover:border-brand transition-all duration-300 hover:-translate-y-1 rotate-[-2deg] p-2">
+              <img src="https://i.ibb.co/gZ3WCykC/IMG-5321.jpg" class="proof-img rounded-xl" alt="Venda real Figurinha Aí">
+            </div>
+
+            <div class="min-w-[240px] md:min-w-[280px] h-[420px] mt-1 bg-surface rounded-2xl overflow-hidden border border-white/10 hover:border-brand transition-all duration-300 hover:-translate-y-1 rotate-[1deg] p-2">
+              <img src="https://i.ibb.co/P0GKgKk/IMG-5315.jpg" class="proof-img rounded-xl" alt="Venda real Figurinha Aí">
+            </div>
+
+            <div class="min-w-[240px] md:min-w-[280px] h-[420px] mt-14 bg-surface rounded-2xl overflow-hidden border border-white/10 hover:border-brand transition-all duration-300 hover:-translate-y-1 rotate-[2deg] p-2">
+              <img src="https://i.ibb.co/v4hLy96n/IMG-5317.jpg" class="proof-img rounded-xl" alt="Venda real Figurinha Aí">
+            </div>
+
+            <div class="min-w-[240px] md:min-w-[280px] h-[420px] mt-3 bg-surface rounded-2xl overflow-hidden border border-white/10 hover:border-brand transition-all duration-300 hover:-translate-y-1 rotate-[-1deg] p-2">
+              <img src="https://i.ibb.co/tPM1nSgX/IMG-5323.jpg" class="proof-img rounded-xl" alt="Venda real Figurinha Aí">
+            </div>
+
+            <div class="min-w-[240px] md:min-w-[280px] h-[420px] mt-10 bg-surface rounded-2xl overflow-hidden border border-white/10 hover:border-brand transition-all duration-300 hover:-translate-y-1 rotate-[1deg] p-2">
+              <img src="https://i.ibb.co/wFMQ2Hx3/IMG-5318.jpg" class="proof-img rounded-xl" alt="Venda real Figurinha Aí">
+            </div>
+
+            <div class="min-w-[240px] md:min-w-[280px] h-[420px] mt-5 bg-surface rounded-2xl overflow-hidden border border-white/10 hover:border-brand transition-all duration-300 hover:-translate-y-1 rotate-[-2deg] p-2">
+              <img src="https://i.ibb.co/5gdc8KDs/IMG-5322.jpg" class="proof-img rounded-xl" alt="Venda real Figurinha Aí">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <section class="py-16 px-5 bg-dark text-center">
+    <div class="max-w-3xl mx-auto fade-in-section">
+      <i class="fas fa-check-circle text-5xl text-brand mb-6"></i>
+      <h2 class="text-3xl font-black text-white mb-4">O mercado já validou.</h2>
+      <p class="text-lg text-slate-400 leading-relaxed">
+        Em vez de testar arquivos aleatórios que podem quebrar, não encaixar ou gastar material demais, você acessa um modelo já refinado, produzido e vendido no mundo real.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- CTA FINAL -->
+  <section id="checkout" class="py-20 px-5 bg-gradient-to-b from-dark to-[#101410] text-center border-t border-white/10">
+    <div class="max-w-4xl mx-auto fade-in-section">
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">Você tem a impressora. Agora tenha o produto.</h2>
+      <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto font-light">
+        Escolha o acesso, baixe o arquivo e comece a imprimir.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <a href="https://pay.hotmart.com/L105914771L?bid=1779239352667" class="bg-brand hover:bg-yellow-300 text-black font-black text-xl py-5 px-8 rounded-xl glow-yellow transition-all transform hover:scale-105">
+          COMUNIDADE<br><span class="text-lg line-through opacity-60">de R$ 97,90</span><br><span class="text-3xl">R$ 32,90/mês</span>
+        </a>
+        <a href="https://pay.hotmart.com/E105914376F?bid=1779237666156" class="bg-green hover:bg-lime-300 text-black font-black text-xl py-5 px-8 rounded-xl glow-green transition-all transform hover:scale-105">
+          USO PESSOAL<br><span class="text-3xl">R$ 39,90</span>
+        </a>
+      </div>
+      <p class="mt-5 text-xs text-slate-500">Acesso imediato ao produto digital • Compra segura</p>
+    </div>
+  </section>
+
+  <!-- STICKY CTA MOBILE -->
+  <div class="md:hidden fixed bottom-0 left-0 w-full p-4 bg-surface/95 backdrop-blur border-t border-white/10 z-50">
+    <a href="#checkout" class="block w-full bg-brand text-black font-black text-center py-4 rounded-lg shadow-lg active:scale-95 transition-transform">
+      🔥 VER OFERTAS
+    </a>
+  </div>
+
+  <footer class="py-8 px-5 bg-black border-t border-white/10 text-center text-sm text-slate-500">
+    © Figurinha Aí — STL desenvolvido e otimizado por Miguel Montezzo. Proibida a redistribuição do arquivo.
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+
+      const targetDate = new Date('2026-07-19T23:59:59-03:00').getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+
+        if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+        if (distance <= 0) {
+          daysEl.innerText = '00';
+          hoursEl.innerText = '00';
+          minutesEl.innerText = '00';
+          secondsEl.innerText = '00';
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        daysEl.innerText = String(days).padStart(2, '0');
+        hoursEl.innerText = String(hours).padStart(2, '0');
+        minutesEl.innerText = String(minutes).padStart(2, '0');
+        secondsEl.innerText = String(seconds).padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
+</body>
+</html>
