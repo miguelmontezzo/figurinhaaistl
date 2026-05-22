@@ -862,7 +862,19 @@
         document.getElementById('err-wpp').classList.toggle('hidden', wpp.length >= 10);
         if (wpp.length < 10) valid = false;
 
-        if (valid && _leadUrl) window.location.href = _leadUrl;
+        if (!valid || !_leadUrl) return;
+
+        const btn = document.getElementById('lead-submit');
+        btn.disabled = true;
+        btn.textContent = 'Aguarde...';
+
+        fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome, email, whatsapp: wpp }),
+        })
+          .catch(() => {})
+          .finally(() => { window.location.href = _leadUrl; });
       });
     });
     // ────────────────────────────────────────────────────────────
