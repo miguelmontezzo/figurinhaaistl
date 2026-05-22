@@ -222,8 +222,8 @@ tr.row-selected td{background:var(--accent-light)}
 <div class="breadcrumb"><a href="/">Início</a> › Figurinha Aí 3D › Filamentos</div>
 
 <div style="max-width:1380px;margin:0 auto;padding:0 20px 16px">
-  <div style="border-radius:12px;overflow:hidden;max-height:280px;line-height:0">
-    <img src="https://i.ibb.co/5xTcxd98/Chat-GPT-Image-May-22-2026-12-11-36-PM.png" alt="Figurinha Aí 3D — Filamentos" style="width:100%;max-height:280px;object-fit:cover;object-position:center;display:block">
+  <div style="border-radius:12px;overflow:hidden;line-height:0">
+    <img src="https://i.ibb.co/5xTcxd98/Chat-GPT-Image-May-22-2026-12-11-36-PM.png" alt="Figurinha Aí 3D — Filamentos" style="width:100%;height:auto;display:block">
   </div>
 </div>
 
@@ -606,22 +606,41 @@ function removeFromCart(id){
 }
 function clearCart(){ selectedIds.clear(); render(); updateCartUI(); renderCartItems(); }
 
+const COLOR_DOT = {
+  'Branco':'⚪','Preto':'⚫','Cinza':'🩶','Azul':'🔵','Vermelho':'🔴',
+  'Verde':'🟢','Amarelo':'🟡','Laranja':'🟠','Rosa':'🩷','Roxo':'🟣',
+  'Marrom':'🟤','Bege':'🟤','Dourado':'🟡','Prata':'⚪','Cobre':'🟠',
+  'Natural':'⚪','Nude':'🟤','Silk':'✨','Galaxy':'🌌','Matte':'⬜',
+  'Transparente':'🔲','Outro':'▫️'
+};
+
 function sendWhatsApp(){
   if(!selectedIds.size) return;
   const items=ALL.filter(p=>selectedIds.has(p.id));
-  let msg='🧵 *Pedido - Figurinha Aí 3D*\n\n';
+  const line = '─────────────────────';
+  let msg = `*Figurinha Aí 3D*\n_Pedido de Filamentos_\n${line}\n\n`;
   let totalSell=0, totalPix=0;
+
   items.forEach((p,i)=>{
-    const sell=p.price_sell?`R$ ${p.price_sell.toFixed(2).replace('.',',')}`:'Pré-venda';
-    const pix=p.price_pix?`R$ ${p.price_pix.toFixed(2).replace('.',',')}`:'—';
-    msg+=`*${i+1}.* ${p.name}\n   💰 ${sell} | 💚 PIX: ${pix}\n`;
+    const dot = COLOR_DOT[p.color] || '▫️';
+    const sell = p.price_sell ? `R$ ${p.price_sell.toFixed(2).replace('.',',')}` : 'Pré-venda';
+    const pix  = p.price_pix  ? `R$ ${p.price_pix.toFixed(2).replace('.',',')}` : null;
+    msg += `*${i+1}. ${p.material} ${dot} ${p.color}*\n`;
+    msg += `*${p.brand}*\n`;
+    msg += `_${p.name}_\n`;
+    msg += `Preço: ${sell}`;
+    if(pix) msg += `  |  PIX: *${pix}*`;
+    msg += '\n\n';
     if(p.price_sell) totalSell+=p.price_sell;
-    if(p.price_pix) totalPix+=p.price_pix;
+    if(p.price_pix)  totalPix +=p.price_pix;
   });
-  msg+=`\n📦 *${items.length} iten${items.length!==1?'s':''}*`;
-  if(totalSell>0) msg+=`\n💵 *Total: R$ ${totalSell.toFixed(2).replace('.',',')}*`;
-  if(totalPix>0) msg+=`\n💚 *Total no PIX: R$ ${totalPix.toFixed(2).replace('.',',')}*`;
-  msg+='\n\nGostaria de confirmar disponibilidade e realizar o pedido.';
+
+  msg += `${line}\n`;
+  msg += `*${items.length} iten${items.length!==1?'s':''}*\n`;
+  if(totalSell>0) msg += `Total: R$ ${totalSell.toFixed(2).replace('.',',')}\n`;
+  if(totalPix>0)  msg += `Total no PIX: *R$ ${totalPix.toFixed(2).replace('.',',')}*\n`;
+  msg += `${line}`;
+
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
