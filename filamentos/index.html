@@ -25,7 +25,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 .header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:var(--shadow)}
 .header-inner{max-width:1380px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 20px}
 .logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;white-space:nowrap}
-.logo-icon{background:var(--accent);color:#fff;border-radius:8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.logo-icon{border-radius:8px;width:40px;height:40px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.logo-icon img{width:100%;height:100%;object-fit:contain}
 .logo-text{font-weight:800;font-size:1.1rem;line-height:1.1}
 .logo-sub{font-size:.68rem;color:var(--text3);font-weight:400;display:block}
 .search-wrap{flex:1;position:relative;max-width:580px}
@@ -195,16 +196,60 @@ tr.row-selected td{background:var(--accent-light)}
   .products-grid{grid-template-columns:repeat(2,1fr);gap:10px}
   th.hide-mobile,td.hide-mobile{display:none}
 }
+
+/* PRODUCT MODAL */
+.pm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:450;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .25s}
+.pm-overlay.open{opacity:1;pointer-events:auto}
+.pm-box{background:#fff;border-radius:var(--radius-lg);max-width:460px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(24px);transition:transform .25s;position:relative}
+.pm-overlay.open .pm-box{transform:translateY(0)}
+.pm-close{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.07);border:none;border-radius:50%;width:30px;height:30px;font-size:.9rem;cursor:pointer;z-index:1;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.pm-close:hover{background:rgba(0,0,0,.15)}
+.pm-img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius-lg) var(--radius-lg) 0 0;background:#f5f5f5;display:block}
+.pm-body{padding:18px}
+.pm-brand{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:3px}
+.pm-name{font-size:1rem;font-weight:800;line-height:1.35;margin-bottom:10px}
+.pm-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.pm-tag{background:var(--surface2);border:1.5px solid var(--border);border-radius:20px;padding:3px 10px;font-size:.75rem;font-weight:600}
+.pm-avail{font-size:.75rem;padding:3px 10px;border-radius:20px;font-weight:600;display:inline-block;margin-bottom:12px}
+.pm-avail.disponivel{background:#e8f5e9;color:#2e7d32}
+.pm-avail.indisponivel{background:#fff3e0;color:#e65c00}
+.pm-prices{background:var(--surface2);border-radius:var(--radius);padding:12px 14px;margin-bottom:14px}
+.pm-price-reg{font-size:.9rem;color:var(--text2);text-decoration:line-through}
+.pm-price-pix-row{display:flex;align-items:center;gap:6px;margin-top:5px}
+.pm-price-pix{font-size:1.25rem;font-weight:800;color:var(--pix)}
+.pm-actions{display:flex;gap:8px}
+.pm-btn-sel{flex:1;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);padding:11px;font-size:.88rem;font-weight:700;cursor:pointer;transition:background .15s}
+.pm-btn-sel.sel{background:#43a047}
+.pm-btn-link{background:var(--surface2);border:1.5px solid var(--border2);border-radius:var(--radius);padding:11px 14px;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:none;color:var(--text2);transition:all .15s;white-space:nowrap}
+.pm-btn-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* FRETE */
+.frete-section{padding:14px 20px;border-top:1px solid var(--border)}
+.frete-title{font-size:.83rem;font-weight:700;margin-bottom:8px}
+.frete-cep-row{display:flex;gap:7px}
+.frete-cep-input{flex:1;border:1.5px solid var(--border2);border-radius:var(--radius);padding:8px 10px;font-size:.85rem;color:var(--text);transition:border-color .2s}
+.frete-cep-input:focus{outline:none;border-color:var(--accent)}
+.frete-calc-btn{background:var(--accent);color:#fff;border:none;border-radius:var(--radius);padding:8px 13px;font-size:.82rem;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
+.frete-calc-btn:hover{background:var(--accent-dark)}
+.frete-addr{font-size:.72rem;color:var(--text3);margin-top:4px;min-height:14px}
+.frete-loading{text-align:center;padding:10px;font-size:.8rem;color:var(--text3);display:none}
+.frete-opt{border:1.5px solid var(--border);border-radius:var(--radius);padding:9px 12px;margin-top:6px;cursor:pointer;transition:all .15s;display:flex;justify-content:space-between;align-items:center}
+.frete-opt:hover{border-color:var(--accent)}
+.frete-opt.sel{border-color:var(--accent);background:var(--accent-light)}
+.frete-opt-name{font-weight:700;font-size:.85rem}
+.frete-opt-prazo{font-size:.72rem;color:var(--text3);margin-top:1px}
+.frete-opt-val{font-weight:800;font-size:.9rem}
+.frete-err{font-size:.78rem;color:#c0392b;margin-top:6px}
 </style>
 </head>
 <body>
 
-<div class="topbar">🚚 Pré-venda &nbsp;|&nbsp; 💚 <strong>PIX</strong>: R$5 de desconto em todos os produtos</div>
+<div class="topbar">🚚 Entrega para todo o Brasil via Correios &nbsp;|&nbsp; 💚 <strong>PIX</strong>: R$5 de desconto em todos os produtos</div>
 
 <header class="header">
   <div class="header-inner">
     <a class="logo" href="#">
-      <div class="logo-icon">🧵</div>
+      <div class="logo-icon"><img src="https://i.ibb.co/whr8sF6C/Design-sem-nome.png" alt="Figurinha Aí 3D"></div>
       <div class="logo-text">Figurinha Aí 3D<span class="logo-sub">Catálogo de filamentos</span></div>
     </a>
     <div class="search-wrap">
@@ -323,9 +368,24 @@ tr.row-selected td{background:var(--accent-light)}
   </div>
   <div id="cartBody" style="flex:1;overflow-y:auto;display:flex;flex-direction:column"></div>
   <div class="cart-footer" id="cartFooter" style="display:none">
+    <!-- Frete Correios -->
+    <div class="frete-section">
+      <div class="frete-title">📦 Calcular Frete (Correios)</div>
+      <div class="frete-cep-row">
+        <input class="frete-cep-input" type="text" id="cepInput" placeholder="00000-000" maxlength="9" oninput="formatCEP(this)" onkeyup="autoCalcFrete(this.value)">
+        <button class="frete-calc-btn" onclick="calcFrete()">Calcular</button>
+      </div>
+      <div class="frete-addr" id="freteAddr"></div>
+      <div class="frete-loading" id="freteLoading">⏳ Calculando...</div>
+      <div id="freteOptions"></div>
+    </div>
     <div class="cart-summary">
       <div class="cart-summary-row"><span>Subtotal:</span><span id="cartSubtotal"></span></div>
+      <div class="cart-summary-row" id="freteRow" style="display:none"><span>Frete:</span><span id="cartFreteVal"></span></div>
+      <div class="cart-summary-row total" id="cartTotalRow" style="display:none"><span>Total:</span><span id="cartTotal"></span></div>
       <div class="cart-summary-row pix-total"><span><span class="pix-logo">PIX</span> Total com desconto:</span><span id="cartPixTotal"></span></div>
+      <div class="cart-summary-row" id="fretePixRow" style="display:none"><span>+ Frete:</span><span id="cartFretePixVal"></span></div>
+      <div class="cart-summary-row pix-total" id="cartPixTotalFreteRow" style="display:none"><span><span class="pix-logo">PIX</span> Total + frete:</span><span id="cartPixTotalFrete"></span></div>
     </div>
     <button class="btn-wa" onclick="sendWhatsApp()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -337,8 +397,35 @@ tr.row-selected td{background:var(--accent-light)}
 
 <div class="toast" id="toast"></div>
 
+<!-- PRODUCT MODAL -->
+<div class="pm-overlay" id="pmOverlay" onclick="pmOverlayClick(event)">
+  <div class="pm-box" id="pmBox">
+    <button class="pm-close" onclick="closeModal()">✕</button>
+    <img class="pm-img" id="pmImg" src="" alt="">
+    <div class="pm-body">
+      <div class="pm-brand" id="pmBrand"></div>
+      <div class="pm-name" id="pmName"></div>
+      <div class="pm-tags" id="pmTags"></div>
+      <div id="pmAvail"></div>
+      <div class="pm-prices">
+        <div class="pm-price-reg" id="pmPriceReg"></div>
+        <div class="pm-price-pix-row">
+          <span class="pix-logo">PIX</span>
+          <span class="pm-price-pix" id="pmPricePix"></span>
+          <span style="font-size:.72rem;color:var(--text3)">(-R$5)</span>
+        </div>
+      </div>
+      <div class="pm-actions">
+        <button class="pm-btn-sel" id="pmBtnSel" onclick="toggleModalSelect()"></button>
+        <a class="pm-btn-link" id="pmBtnLink" href="#" target="_blank" rel="noopener">Ver na loja 🔗</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 const WA = '5534953281906';
+const CEP_ORIGEM = '38408046'; // CEP de origem do vendedor
 const PAGE_SIZE = 48;
 const MAT_COLOR = {PLA:'#4CAF50',ABS:'#2196F3',PETG:'#9C27B0',TPU:'#FF9800',Wood:'#795548',ASA:'#00BCD4',Nylon:'#607D8B',Outro:'#9E9E9E'};
 
@@ -348,6 +435,8 @@ let filtered = [...ALL];
 let currentPage = 1;
 let currentView = 'grid';
 let selectedIds = new Set();
+let currentModalProduct = null;
+let selectedFrete = null;
 let activeBrands = new Set();
 let activeMats = new Set();
 let activeColors = new Set();
@@ -460,9 +549,8 @@ function renderGrid(page) {
     div.innerHTML = `
       <div class="card-badges">
         <span class="badge badge-brand">${p.brand}</span>
-        <span class="badge badge-presale">Pré-venda</span>
       </div>
-      <div class="card-select-indicator">${selectedIds.has(p.id)?'✓':''}</div>
+      <div class="card-select-indicator" title="Selecionar">${selectedIds.has(p.id)?'✓':''}</div>
       <div class="card-img-wrap">
         <img src="${p.image_url||''}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#ccc\'>🧵</div>'">
       </div>
@@ -482,7 +570,10 @@ function renderGrid(page) {
       <div class="card-footer">
         <button class="btn-select">${selectedIds.has(p.id)?'✓ Selecionado':'+ Selecionar'}</button>
       </div>`;
+    // Clique no card abre modal; clique no indicador/botão apenas seleciona
+    div.querySelector('.card-select-indicator').onclick = (e) => { e.stopPropagation(); toggleSelect(p.id); refreshCard(p.id); };
     div.querySelector('.btn-select').onclick = (e) => { e.stopPropagation(); toggleSelect(p.id); refreshCard(p.id); };
+    div.onclick = () => openModal(p.id);
     frag.appendChild(div);
   });
   grid.innerHTML = ''; grid.appendChild(frag);
@@ -497,17 +588,17 @@ function renderTable(page) {
     const sel = selectedIds.has(p.id);
     const matColor = MAT_COLOR[p.material]||'#999';
     return `<tr class="${sel?'row-selected':''}" data-id="${p.id}">
-      <td class="tbl-check-wrap"><div class="tbl-check" onclick="toggleSelect('${p.id}');(${reRender.toString()})()">${sel?'✓':''}</div></td>
-      <td><img class="tbl-img" src="${p.image_url||''}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"></td>
-      <td><div class="tbl-name">${p.name}</div></td>
-      <td class="hide-mobile"><span class="tbl-brand">${p.brand}</span></td>
-      <td class="hide-mobile"><span class="tbl-material"><span class="mat-dot" style="background:${matColor}"></span>${p.material}</span></td>
-      <td class="hide-mobile">${p.color}</td>
-      <td>
+      <td class="tbl-check-wrap" onclick="event.stopPropagation();toggleSelect('${p.id}');(${reRender.toString()})()"><div class="tbl-check">${sel?'✓':''}</div></td>
+      <td style="cursor:pointer" onclick="openModal('${p.id}')"><img class="tbl-img" src="${p.image_url||''}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"></td>
+      <td style="cursor:pointer" onclick="openModal('${p.id}')"><div class="tbl-name">${p.name}</div></td>
+      <td class="hide-mobile" style="cursor:pointer" onclick="openModal('${p.id}')"><span class="tbl-brand">${p.brand}</span></td>
+      <td class="hide-mobile" style="cursor:pointer" onclick="openModal('${p.id}')"><span class="tbl-material"><span class="mat-dot" style="background:${matColor}"></span>${p.material}</span></td>
+      <td class="hide-mobile" style="cursor:pointer" onclick="openModal('${p.id}')">${p.color}</td>
+      <td style="cursor:pointer" onclick="openModal('${p.id}')">
         <div class="tbl-price-sell">${fmt(p.price_sell)}</div>
         <div class="tbl-price-pix"><span class="pix-logo">PIX</span><span style="color:var(--pix);font-weight:700;font-size:.82rem">${fmt(p.price_pix)}</span></div>
       </td>
-      <td><button class="btn-select" style="width:auto;padding:5px 10px" onclick="toggleSelect('${p.id}');(${reRender.toString()})()">${sel?'✓ Sel':'+ Sel'}</button></td>
+      <td><button class="btn-select" style="width:auto;padding:5px 10px" onclick="event.stopPropagation();toggleSelect('${p.id}');(${reRender.toString()})()">${sel?'✓ Sel':'+ Sel'}</button></td>
     </tr>`;
   }).join('');
 }
@@ -596,6 +687,20 @@ function renderCartItems() {
   document.getElementById('cartPixTotal').textContent=fmt(totalPix);
   document.getElementById('cartHeaderCount').textContent=`(${items.length} iten${items.length!==1?'s':''})`;
   footer.style.display='flex';
+  // Atualiza frete se já calculado
+  if(selectedFrete){
+    const freteNum = parseFloat(selectedFrete.valor.replace(',','.')) || 0;
+    document.getElementById('freteRow').style.display='flex';
+    document.getElementById('cartFreteVal').textContent=`R$ ${selectedFrete.valor}`;
+    document.getElementById('cartTotalRow').style.display='flex';
+    document.getElementById('cartTotal').textContent=fmt(totalSell+freteNum);
+    document.getElementById('fretePixRow').style.display='flex';
+    document.getElementById('cartFretePixVal').textContent=`R$ ${selectedFrete.valor}`;
+    document.getElementById('cartPixTotalFreteRow').style.display='flex';
+    document.getElementById('cartPixTotalFrete').textContent=fmt(totalPix+freteNum);
+  } else {
+    ['freteRow','cartTotalRow','fretePixRow','cartPixTotalFreteRow'].forEach(id=>document.getElementById(id).style.display='none');
+  }
 }
 
 function removeFromCart(id){
@@ -637,8 +742,20 @@ function sendWhatsApp(){
 
   msg += `${line}\n`;
   msg += `*${items.length} iten${items.length!==1?'s':''}*\n`;
-  if(totalSell>0) msg += `Total: R$ ${totalSell.toFixed(2).replace('.',',')}\n`;
-  if(totalPix>0)  msg += `Total no PIX: *R$ ${totalPix.toFixed(2).replace('.',',')}*\n`;
+  if(totalSell>0) msg += `Subtotal: R$ ${totalSell.toFixed(2).replace('.',',')}\n`;
+  if(selectedFrete){
+    const nomes = {'04510':'PAC','04014':'SEDEX'};
+    const nome = nomes[selectedFrete.codigo]||selectedFrete.codigo;
+    const cepVal = document.getElementById('cepInput').value;
+    const freteNum = parseFloat(selectedFrete.valor.replace(',','.')) || 0;
+    msg += `Frete (${nome} — CEP ${cepVal}): *R$ ${selectedFrete.valor}*\n`;
+    if(totalPix>0) msg += `Total no PIX: *R$ ${(totalPix+freteNum).toFixed(2).replace('.',',')}*\n`;
+    if(totalSell>0) msg += `Total: R$ ${(totalSell+freteNum).toFixed(2).replace('.',',')}\n`;
+  } else {
+    if(totalPix>0)  msg += `Total no PIX: *R$ ${totalPix.toFixed(2).replace('.',',')}*\n`;
+    const cepVal = document.getElementById('cepInput').value.replace(/\D/g,'');
+    if(cepVal.length===8) msg += `CEP de entrega: ${document.getElementById('cepInput').value}\n`;
+  }
   msg += `${line}`;
 
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
@@ -653,6 +770,155 @@ function setView(v){
 function openSidebar(){ document.getElementById('sidebar').classList.add('open'); document.getElementById('sidebarOverlay').classList.add('visible'); }
 function closeSidebar(){ document.getElementById('sidebar').classList.remove('open'); document.getElementById('sidebarOverlay').classList.remove('visible'); }
 function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }
+
+// ── MODAL ──────────────────────────────────────────
+function openModal(id) {
+  const p = ALL.find(x => x.id === id);
+  if (!p) return;
+  currentModalProduct = p;
+  const matColor = MAT_COLOR[p.material] || '#999';
+  document.getElementById('pmImg').src = p.image_url || '';
+  document.getElementById('pmImg').alt = p.name;
+  document.getElementById('pmBrand').textContent = p.brand;
+  document.getElementById('pmName').textContent = p.name;
+  document.getElementById('pmTags').innerHTML =
+    `<span class="pm-tag" style="color:${matColor};background:${matColor}18;border-color:${matColor}44">${p.material}</span>` +
+    `<span class="pm-tag">${p.color}</span>`;
+  const avail = p.availability === 'disponivel';
+  document.getElementById('pmAvail').innerHTML =
+    `<span class="pm-avail ${p.availability}">${avail ? '✓ Disponível' : '⏳ Pré-venda / Indisponível'}</span>`;
+  document.getElementById('pmPriceReg').textContent = `Regular: ${fmt(p.price_sell)}`;
+  document.getElementById('pmPricePix').textContent = fmt(p.price_pix);
+  document.getElementById('pmBtnLink').href = p.product_url || '#';
+  _updateModalBtn();
+  document.getElementById('pmOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function _updateModalBtn() {
+  if (!currentModalProduct) return;
+  const sel = selectedIds.has(currentModalProduct.id);
+  const btn = document.getElementById('pmBtnSel');
+  btn.textContent = sel ? '✓ Adicionado ao Pedido' : '+ Adicionar ao Pedido';
+  btn.classList.toggle('sel', sel);
+}
+
+function toggleModalSelect() {
+  if (!currentModalProduct) return;
+  toggleSelect(currentModalProduct.id);
+  refreshCard(currentModalProduct.id);
+  _updateModalBtn();
+}
+
+function pmOverlayClick(e) { if (e.target === document.getElementById('pmOverlay')) closeModal(); }
+function closeModal() {
+  document.getElementById('pmOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  currentModalProduct = null;
+}
+
+// ── FRETE (CORREIOS) ────────────────────────────────
+function formatCEP(input) {
+  let v = input.value.replace(/\D/g,'');
+  if (v.length > 5) v = v.slice(0,5)+'-'+v.slice(5,8);
+  input.value = v;
+}
+
+function autoCalcFrete(val) {
+  if (val.replace(/\D/g,'').length === 8) calcFrete();
+}
+
+// ─── TABELA DE ZONAS (origem: MG) ────────────────────
+// Mapeamento UF → índice de zona (0=Z1 … 5=Z6)
+const _UF_ZONA = {
+  MG:0,
+  ES:1,RJ:1,SP:1,
+  BA:2,DF:2,GO:2,
+  AL:3,MS:3,PR:3,SE:3,
+  CE:4,MA:4,MT:4,PE:4,PB:4,PI:4,RN:4,SC:4,
+  AC:5,AM:5,AP:5,PA:5,RO:5,RR:5,RS:5,TO:5
+};
+// Prazo em dias úteis por zona [z1..z6]
+const _PAC_PRAZO  = [4,7,9,11,13,17];
+const _SED_PRAZO  = [1,2,2,3,4,5];
+// Preços PAC por faixa de peso (até 1kg, 2kg, 3kg, 4kg, 5kg) × zona [z1..z6]
+const _PAC = [
+  [19.90,25.10,28.50,32.90,37.90,45.90],
+  [22.80,29.40,33.60,38.90,44.90,54.40],
+  [25.70,33.70,38.70,44.90,51.90,62.90],
+  [28.60,38.00,43.80,50.90,58.90,71.40],
+  [31.50,42.30,48.80,57.10,65.90,79.90],
+];
+const _PAC_KG = [2.90,4.30,4.50,6.20,7.00,8.50]; // por kg acima de 5kg
+// Preços SEDEX por faixa × zona
+const _SED = [
+  [22.80,34.60,41.40,50.90,57.20,70.80],
+  [27.00,41.60,50.00,61.80,69.50,86.00],
+  [31.20,48.60,58.60,72.70,81.80,101.20],
+  [35.40,55.60,67.20,83.60,94.10,116.40],
+  [39.60,62.60,75.80,94.50,106.40,131.60],
+];
+const _SED_KG  = [4.20,7.00,8.60,10.90,12.30,15.20];
+
+function _calcFreteLocal(uf, nItems) {
+  const z = _UF_ZONA[uf] ?? 3;
+  const peso = nItems * 1.1; // ~1.1kg por carretel
+  const bracket = Math.min(Math.ceil(peso) - 1, 4);
+  const extra   = Math.max(0, Math.ceil(peso) - 5);
+  const fmtR = v => v.toFixed(2).replace('.',',');
+  return [
+    { codigo:'04510', nome:'PAC',   valor: fmtR(_PAC[bracket][z] + extra*_PAC_KG[z]), prazo: _PAC_PRAZO[z] },
+    { codigo:'04014', nome:'SEDEX', valor: fmtR(_SED[bracket][z] + extra*_SED_KG[z]), prazo: _SED_PRAZO[z] },
+  ];
+}
+
+async function calcFrete() {
+  const digits = document.getElementById('cepInput').value.replace(/\D/g,'');
+  if (digits.length !== 8) { showToast('Digite um CEP válido (8 dígitos)'); return; }
+
+  const freteOpts = document.getElementById('freteOptions');
+  const freteLoad = document.getElementById('freteLoading');
+  const freteAddr = document.getElementById('freteAddr');
+  freteOpts.innerHTML = '';
+  freteAddr.textContent = '';
+  freteLoad.style.display = 'block';
+  selectedFrete = null;
+
+  try {
+    const via = await fetch(`https://viacep.com.br/ws/${digits}/json/`).then(r=>r.json());
+    if (via.erro) { freteAddr.textContent = '❌ CEP não encontrado'; freteLoad.style.display='none'; return; }
+    freteAddr.textContent = `${via.localidade} – ${via.uf}`;
+    const options = _calcFreteLocal(via.uf, selectedIds.size || 1);
+    _renderFreteOptions(options);
+  } catch(e) {
+    freteOpts.innerHTML = '<div class="frete-err">❌ Erro ao consultar CEP. Verifique sua conexão.</div>';
+  }
+  freteLoad.style.display = 'none';
+}
+
+function _renderFreteOptions(options) {
+  const el = document.getElementById('freteOptions');
+  if (!selectedFrete) _selectFrete(options[0], false);
+  el.innerHTML = options.map(o =>
+    `<div class="frete-opt${selectedFrete?.codigo===o.codigo?' sel':''}" onclick="_selectFrete(${JSON.stringify(o).replace(/"/g,"'")})">
+      <div>
+        <div class="frete-opt-name">${o.nome}</div>
+        <div class="frete-opt-prazo">Até ${o.prazo} dia(s) útil(eis) • estimativa</div>
+      </div>
+      <div class="frete-opt-val">R$ ${o.valor}</div>
+    </div>`
+  ).join('') + `<div style="font-size:.7rem;color:var(--text3);margin-top:5px">* Valores estimados com base na tabela Correios 2025. <a href="https://www2.correios.com.br/sistemas/precos/" target="_blank" style="color:var(--accent)">Calcular oficialmente ↗</a></div>`;
+}
+
+function _selectFrete(option, rerender=true) {
+  selectedFrete = option;
+  if (rerender) {
+    renderCartItems();
+    document.querySelectorAll('.frete-opt').forEach(el => {
+      el.classList.toggle('sel', el.querySelector('.frete-opt-name')?.textContent === option.nome);
+    });
+  }
+}
 
 init();
 </script>
